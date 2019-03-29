@@ -1,6 +1,6 @@
 import React from 'react'; //this is needed to create a component
 
-const Ninjas = ({ninjas, deleteNinja}) =>{ //funcrtional component, use them when you dont need states 
+const Ninjas = props =>{ //funcrtional component, use them when you dont need states 
     //console.log(this.props);
     //const {name, age, belt} = this.props;
     //const{ninjas} = this.props;//grabs the ninjas
@@ -26,7 +26,7 @@ const Ninjas = ({ninjas, deleteNinja}) =>{ //funcrtional component, use them whe
         <div className= "ninja-List">
            {/* {ninjaList}*/}{/* another way to do the same thing <div>{this.props.belt}</div> */}
             {
-                ninjas.map(ninja =>{ //conditional output using the ternery operator 
+                props.ninjas.map(ninja =>{ //conditional output using the ternery operator 
                     //eg: condition ? (true return this) : (false return this) 
                     return (ninja.age > 23 ? (
                             <div className= "ninja" key= {ninja.id}>{/* key is used to make each ninja unique*/}
@@ -34,7 +34,7 @@ const Ninjas = ({ninjas, deleteNinja}) =>{ //funcrtional component, use them whe
                                 <div>{ninja.age}</div>
                                 <div>{ninja.belt}</div>
                                 {/*the extra arrow function is used to stop the function from being called until u click the button*/}
-                               <button onClick={() => this.deleteNinja(ninja.id)}>X</button>
+                               <button onClick={() =>  props.deleteNinja(ninja.id)}>X</button>
                               
                                 </div>
                         ) : (null)

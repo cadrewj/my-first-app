@@ -22,10 +22,10 @@ class App extends Component {
   }
   deleteNinja = (id) =>{
    
-  // let ninjas = this.state.ninjas.filter(ninja =>{
-  //    return(ninja.id!==id);//if false it filters the ninja out of the array
-   // });
-   // this.setState({ninjas: ninjas});
+  let ninjas = this.state.ninjas.filter(ninja =>{
+    return(ninja.id!==id);//if false it filters the ninja out of the array
+   });
+   this.setState({ninjas: ninjas});
     console.log(id);
   }
   render() {
@@ -35,9 +35,9 @@ class App extends Component {
         {/*this is how you nest Components*/}
         {/*<Ninjas name="James" age="25" belt="Gold"/>*/}{/*creating props/property names to pass*/}
       
-        <Ninjas ninjas={this.state.ninjas}/>{/*used to ouput the ninjas onto the DOM/Html page*/}
+        <Ninjas ninjas={this.state.ninjas} deleteNinja={this.deleteNinja}/>{/*used to ouput the ninjas onto the DOM/Html page*/}
         <br/>
-        <AddNinja addNinja = {this.addNinja} deleteNinja={this.deleteNinja}/>{/*used to ouput the form Add Ninjas onto the DOM/Html page*/}
+        <AddNinja addNinja = {this.addNinja}  />{/*used to ouput the form Add Ninjas onto the DOM/Html page*/}
         {/*passing the prop to make it possible to delete a ninja
         passing the new ninja in as a prop
         note: the prop contains the new values for the ninja
